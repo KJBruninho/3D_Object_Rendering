@@ -1,29 +1,24 @@
 #version 330 core
 
-// Input vertex data
 layout(location = 0) in vec3 vertexPosition;
 layout(location = 1) in vec3 vertexNormal;
 layout(location = 2) in vec2 vertexUV;
 
-// Output data
-out vec3 fragmentPosition;
-out vec3 fragmentNormal;
+uniform mat4 MVP;
+uniform mat4 Model;
+
+out vec3 FragPos;
+out vec3 Normal;
 out vec2 UV;
 
-// Matrices
-uniform mat4 MVP;
-uniform mat4 ModelMatrix;
-
 void main() {
-    // Position
     gl_Position = MVP * vec4(vertexPosition, 1.0);
     
-    // Pass position in world space to fragment shader
-    fragmentPosition = vec3(ModelMatrix * vec4(vertexPosition, 1.0));
+    // CORRIGIDO: Transformar a posição do fragmento corretamente
+    FragPos = vec3(Model * vec4(vertexPosition, 1.0));
     
-    // Transform normal to world space
-    fragmentNormal = mat3(transpose(inverse(ModelMatrix))) * vertexNormal;
+    // CORRIGIDO: Transformar as normais corretamente (matriz normal)
+    Normal = mat3(transpose(inverse(Model))) * vertexNormal;
     
-    // Pass UV coordinates
     UV = vertexUV;
 }
