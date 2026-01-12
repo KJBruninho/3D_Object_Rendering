@@ -18,7 +18,13 @@
     <ClCompile Include="FileName.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Project_1\Project_1\shader.cpp">
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\shader.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\controls.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\OpenGL\common\texture.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
